@@ -51,7 +51,7 @@ const Tab1: React.FC = () => {
         </IonRow>
         <IonRow>
           <IonCol size="9"><IonButton color="danger" onClick={ () => setText("0") }>Borrar</IonButton></IonCol>
-          <IonCol><IonButton color="secondary">=</IonButton></IonCol>
+          <IonCol><IonButton color="secondary" onClick={ () => setText(eval(text)) }>=</IonButton></IonCol>
         </IonRow>
       </IonGrid>
     </IonContent>
