@@ -1,5 +1,4 @@
 import React from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 
@@ -9,10 +8,16 @@ import { IonCol, IonGrid, IonRow } from '@ionic/react';
 /*Botones*/
 import { IonButton } from '@ionic/react';
 
-
+/*Dark*/
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonList, IonItem, IonIcon, IonLabel, IonToggle} from "@ionic/react";
+import { moon } from "ionicons/icons";
 
 const Tab1: React.FC = () => {
   const [ text, setText ] = React.useState("0") 
+  
+  const toggleDarkModeHandler = () => {
+    document.body.classList.toggle("dark");
+  };
 
   return(
     <IonPage>
@@ -22,6 +27,17 @@ const Tab1: React.FC = () => {
       </IonToolbar>
     </IonHeader>
     <IonContent fullscreen>
+    <IonList className="ion-margin-top">
+          <IonItem>
+            <IonIcon slot="start" icon={moon} color="primary" />
+            <IonLabel color={"primary"}>Dark Mode</IonLabel>
+            <IonToggle
+              slot="end"
+              name="darkMode"
+              onIonChange={toggleDarkModeHandler}
+            />
+          </IonItem>
+        </IonList>
       <IonGrid>
         <IonRow>
           <IonCol><p id="result">{text}</p></IonCol>
